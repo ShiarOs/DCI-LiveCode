@@ -7,35 +7,57 @@
     <title>NES ML</title>
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/nes.css/css/nes.css">
+    <style>
+        .dev1{
+            width: 100%;
+            height: 450px;
+            border-top: 10px solid red;
+            border-bottom: 10px solid red;
+            padding: 10px;
+            margin-top:10px;
+            position: relative;
+            background: url(city.png);
+            animation: move-city 10s linear;
+            animation-iteration-count: infinite;
+        }
+        .nes-mario{
+            position: absolute;
+            top:30px;
+            left: 50px;
+            animation: 
+            mario-jump 0.5s 3s alternate,
+            come-fast 10s;
+
+            animation-iteration-count: infinite;
+
+        } 
+        .dev1>i:hover{
+            transform:rotate(40deg);
+            transition:2s;
+        }
+        @keyframes move-city {
+            0%      {background-position: 0 0;}
+            100%    {background-position: -2937px 0;}
+        }
+        @keyframes mario-jump{
+            from {top: 0px;}
+            to   {top: 60px;}
+        }
+        @keyframes come-fast {
+            0% {left:-100px; top:0px;transform: rotate(0);}
+            25% {left:20px; top: 30px;transform: rotate(0);}
+            50% {left: 50%; top: 50%; transform: rotate(90deg);transition:1s;}
+            75% {left: 75%; top: 30%;transform: rotate(360deg);}
+            100% {left: 100%; top: 0px;transform: rotate(0);}
+        }
+    </style>
 </head>
 <body>
-    <intro>
-        <box-title>That's me</box-title>
-        <message>Thanks for dropping by, stranger!</message>
-        <ash></ash>
-        <headline>Maxim</headline>
-    </intro>
+    <header>
 
-    <box>
-        <box-title>About me</box-title>
-        <bubble>I've been making websites for a loong time. Now I also teach it to others and try to make it fun and easy too.</bubble>
-        <ash></ash>
-    </box>
-
-    <box>
-        <box-title>I'm good at</box-title>
-        <progress-95>JavaScript</progress-95>
-        <progress-100>HTML</progress-100>
-        <progress-95>CSS</progress-95>
-    </box>
-
-    <box>
-        <box-title>Find me on</box-title>
-        <github>galymax</github>
-        <linkedin>https://www.linkedin.com/in/maxim-werkhowski-b990611bb</linkedin>
-        <twitter>@maximwerkhowski</twitter>
-        <gmail>myemail@gmail.com</gmail>
-        <whatsapp>+4912345678</whatsapp>
-    </box>
+    </header>
+    <div class="dev1">
+        <i class="nes-mario"></i>
+    </div>
 </body>
 </html>
