@@ -1,116 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learn for a new life</title>
-    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/nes.css/css/nes.css">
+    <title>
+        Live coding with DCI
+    </title>
     <style>
-        .dark-mode {
-            background-color: black;
-            color: white;
-        }
-        .dev1{
+        div {
             width: 100%;
             height: 450px;
             border-top: 10px solid red;
             border-bottom: 10px solid red;
             padding: 10px;
-            margin-top:10px;
+            margin-top: 10px;
             position: relative;
-            background: url(city.png);
+            background: url(https://tinyurl.com/dci-city);
             animation: move-city 10s linear;
             animation-iteration-count: infinite;
         }
-        .mario-box{
-            position: absolute;
-            top:30px;
-            left: 50px;
-            animation: 
-            mario-jump 1.5s 3s alternate,
-            come-fast 10s linear;
 
+        i {
+            position: absolute;
+            top: 30px;
+            left: 50px;
+            animation:
+                mario-jump 1.5s 3s alternate,
+                come-fast 10s linear;
             animation-iteration-count: infinite;
+        }
 
-        } 
-        .mario-box:hover{
-            transform:rotate(40deg);
-            transition:2s;
+        @keyframes come-fast {
+            0% {
+                left: -100px;
+                top: 0px;
+                transform: rotate(0);
+            }
+
+            25% {
+                left: 20px;
+                top: 30px;
+                transform: rotate(0);
+            }
+
+            50% {
+                left: 50%;
+                top: 50%;
+                transform: rotate(90deg);
+            }
+
+            75% {
+                left: 75%;
+                top: 30%;
+                transform: rotate(99990deg);
+            }
+
+            100% {
+                left: 100%;
+                top: 0px;
+                transform: rotate(0);
+            }
         }
-        .ball{
-            position: absolute;
-            top:30px;
-            left: 50px;
-            width: 20px;
-            height: 20px;
-            opacity: 0;
-            z-index: 50;
-            background-color: rgb(255, 0, 0);
-            box-shadow: 0px 0px 10px orangered;
-            border-radius: 50%;
-            animation: shot 10s 0.5s linear   infinite;
-        }
-        .ball-2{
-            animation: shot 10s 0.4s linear   infinite;
+
+        @keyframes mario-jump {
+            from {
+                top: 0px;
+            }
+
+            to {
+                top: 60px;
+            }
         }
 
         @keyframes move-city {
-            0%      {background-position: 0 0;}
-            100%    {background-position: -2937px 0;}
-        }
-        @keyframes mario-jump{
-            from {top: 0px;}
-            to   {top: 60px;}
-        }
-        @keyframes come-fast {
-            0% {left:-100px; top:0px;transform: rotate(0);}
-            25% {left:20px; top: 30px;transform: rotate(0);}
-            50% {left: 50%; top: 50%; transform: rotate(90deg);transition:1s;}
-            75% {left: 75%; top: 30%;transform: rotate(99990deg);}
-            100% {left: 100%; top: 0px;transform: rotate(0);}
-        }
-        @keyframes shot{
-            0% {left: 55px; top:40px; opacity: 1;}
-            100% {left: 100%; top:50% }
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: -2937px 0;
+            }
         }
 
+        .dark-mode {
+            background-color: black;
+            color: white;
+        }
     </style>
     <script>
-        // on toggle run this function to set background of the body black or white
-        function changeBackground() {
-            var element = document.body;
-            element.classList.toggle("dark-mode");
-        }
-        // add toggle function to change background color of the body on space key press
-        document.body.onkeyup = function(e){
-            if(e.keyCode == 32){
-                changeBackground();
+        document.body.onkeyup = function (e) {
+            if (e.keyCode == 32) {
+                var element = document.body;
+                element.classList.toggle("dark-mode");
             }
-        } 
-
-       
-        
+        }
     </script>
 </head>
-<body>
-    <header>
 
-    </header>
-    <div class="dev1">
-        <dev class="mario-box">
-<i class="nes-mario"></i>
-      
-        </dev>
-          <span class="ball"></span>
-        <span class="ball ball-2"></span>
-        
-    </div>
+<body>
+    <h3>Learn for a new life</h3>
     <div>
-        <i class="nes-icon instagram is-large"></i>
-        <p>Instagram</p>
+        <i class="nes-mario"></i>
     </div>
-    <button onclick="changeBackground()">Dark/Light</button>
 </body>
+
 </html>
